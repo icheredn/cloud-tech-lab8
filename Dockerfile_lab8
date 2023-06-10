@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+#Kopiowanie skryptu
+COPY pluto.sh .
+
+#definicja wolumenu
+VOLUME /logi
+
+#utworzenie katalogu, nadanie praw i uruchomienie
+RUN mkdir /logi && chmod +x ./pluto.sh && ./pluto.sh
+
+CMD ["/bin/sh"]
